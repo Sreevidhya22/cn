@@ -1,9 +1,12 @@
 is_prime() {
 num=$1
-if [ $num -le 2 ]; then
+if [ $num -lt 2 ]; then
 return 1
 fi
-for ((i=2;i*i<num;i++)); do
+if [ $num -eq 2 ]; then
+return 0
+fi
+for ((i=2;i*i<=num;i++)); do
 if [ $((num%i)) -eq 0 ]; then
 return 1
 fi
